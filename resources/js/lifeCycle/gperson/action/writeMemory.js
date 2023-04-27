@@ -12,11 +12,11 @@ class ActionWriteMemory extends ActionBase {
     }
 
     execute(infos) {
-        this.world.writerActions.writeMsgFromSomeone(this.person.getName(), ' write this memory to ' + infos.type + ': ' + infos.message);
+        this.world.writerActions.writeMsgFromSomeone(this.person.getName(), 'Wrote memory to "' + infos.type + '": ' + infos.message);
 
-        // Complete goals
+        // Write Memory
         if (infos.type == 'world') {
-            this.world.memory.writeMemory(this.person.getName() + ' write memory: ' + infos.message);
+            this.world.memory.writeMemory(infos.message);
         } else {
             this.person.memory.writeMemory(infos.message);
         }
