@@ -8,7 +8,7 @@ This class represents a world with its own state, goals, persons, and memory. It
 
 Initializing the world with its ID, name, and goals.
 Creating and managing persons (GPerson instances) in the world.
-Starting the world by setting the main goal, creating the birther, and initializing the first person.
+Starting the world by setting the main goal and initializing the first person.
 Updating the world state and handling the UI updates associated with it.
 Providing methods to find persons and get information about them.
 

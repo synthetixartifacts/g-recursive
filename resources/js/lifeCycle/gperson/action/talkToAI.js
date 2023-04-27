@@ -48,8 +48,8 @@ class ActionTalkToAI extends ActionBase {
             // this.world.memory.writeMemory(this.person.getName() + ' said to ' + this.newPerson.getName() + ' : "' + infos.message + '"');
 
 
-            this.world.writerActions.writeMsgFromSomeone(this.person.getName(), 'said to ' + this.newPerson.getName() + ' :' + infos.message);
-            this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), 'is thinking...');
+            // this.world.writerActions.writeMsgFromSomeone(this.person.getName(), '<b>said to ' + this.newPerson.getName() + ':<br/> ' + infos.message + '</b>');
+            // this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), 'is thinking...');
 
             this.person.memory.writeMemory('You said to ' + this.newPerson.getName() + ': "' + infos.message + '"');
             this.newPerson.memory.writeMemory(this.person.getName() + ' said: "' + infos.message + '"');
@@ -59,7 +59,7 @@ class ActionTalkToAI extends ActionBase {
     writeMemoryEnd(infos) {
         // this.world.writerTalking.removeLastItem();
         if (infos.first_message.length > 0) {
-            this.world.writerTalking.writeMsgFromSomeone(this.newPerson.getName(), infos.first_message);
+            this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), infos.first_message);
         }
 
         // Memory Person
@@ -83,30 +83,37 @@ class ActionTalkToAI extends ActionBase {
                 }
             }
             actionListName = actionListName.slice(0, actionListName.length - 2);
-            actionListName = 'Execute ' + count + ' action(s): ' + actionListName;
+            var mnessageWorld = 'Responded with ' + count + ' action(s): ' + actionListName;
 
-            this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), actionListName);
+            this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), mnessageWorld);
             this.newPerson.memory.writeMemory(actionListName);
         }
 
         // End message
         if (infos.last_message.length > 0) {
-            this.world.writerTalking.writeMsgFromSomeone(this.newPerson.getName(), infos.last_message);
+            this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), infos.last_message);
         }
     }
 
     canTalkValidation(messages) {
         // Validate interval between call
         var now         = new Date();
-        var numberSpace = 60000 / $('#max-call-min').val();
+        var numberSpace = 60000 / $('#max-call-min').val() + 50;
 
+        if (!this.person.isWaiting) {
+            this.world.writerActions.writeMsgFromSomeone(this.person.getName(), 'Said to ' + this.newPerson.getName() + ':<br/><b>' + messages.message + '</b>');
+            this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), 'Is thinking...');
+        }
+
+        // Wait
         if (this.world.lastExecutedGPTCall !== null && now - this.world.lastExecutedGPTCall < numberSpace) {
-            this.world.writerActions.writeNotice('SetTimeout Talkto -> ' + (numberSpace/1000) + 'sec');
-            console.log('TIMEOUT-----------------------');
+            console.log('TIMEOUT-----------------------', 'SetTimeout Talkto -> ' + (numberSpace/1000) + 'sec');
 
             setTimeout(() => {
                 this.execute(messages);
             }, numberSpace);
+
+            this.person.isWaiting = true;
 
             return false;
         }
@@ -150,9 +157,12 @@ class ActionTalkToAI extends ActionBase {
 
         var response = await this.openAiAPI.gptApiCall(realMsg);
 
+        // Responded
+        this.person.isWaiting = false;
+
         // Manage Response
         if (typeof response !== "object" && response.includes('Error fetching')) {
-            this.world.writerActions.writeNotice(response);
+            this.world.writerActions.writeNotice(response, true);
 
             return { executed: false, newActions: [] };
         }

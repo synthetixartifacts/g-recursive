@@ -13,13 +13,13 @@
         <div class="menu-mobile-bg"></div>
         <div class="menu">
             <div class="menu-item">
-                <a href="/">
+                <a href="https://www.g-prompter.com/en/contact" target="_blank">
                     Contact
                 </a>
-                <a href="/">
+                <a href="/" target="_blank">
                     G-P
                 </a>
-                <a href="/">
+                <a href="https://github.com/synthetixartifacts/g-recursive" target="_blank">
                     Github
                 </a>
             </div>

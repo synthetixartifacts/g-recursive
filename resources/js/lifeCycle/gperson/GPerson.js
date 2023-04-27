@@ -25,11 +25,12 @@ class GPerson {
         this.actionslist.push(new ActionBrowseUrl(world, this));
         this.actionslist.push(new ActionAskForAction(world, this));
         this.actionslist.push(new ActionAddGoal(world, this));
-        // this.actionslist.push(new ActionExecJs(world, this));
-        this.actionslist.push(new ActionExecPHP(world, this));
-        this.actionslist.push(new ActionAskUserInfos(world, this));
+        // // this.actionslist.push(new ActionExecJs(world, this));
+        // this.actionslist.push(new ActionExecPHP(world, this));
+        // this.actionslist.push(new ActionAskUserInfos(world, this));
 
         this.lastMessageGPT = '';
+        this.isWaiting      = false;
     }
 
 
@@ -39,7 +40,7 @@ class GPerson {
 
         // Add rules for order
         // Todo make this better somewhere
-        // CUST whenever I see talkToAI / googleSearch / browseUrl
+        // CUT whenever I see talkToAI / googleSearch / browseUrl
         var toContinueToAdd = true;
 
         for (const action of actions) {
@@ -67,11 +68,9 @@ class GPerson {
                     }])
                 }
             }
-
         }
 
 
-        // console.warn('sortedActions', sortedActions);
 
         var returnAction = [];
         var asyncFunction = null;
@@ -79,7 +78,8 @@ class GPerson {
 
             if (sortedActions[actionList.machine] !== undefined) {
                 for (const action of sortedActions[actionList.machine]) {
-                    if (action.async) {
+
+                    if (actionList.async) {
                         asyncFunction = action;
                     } else {
                         returnAction.push(action);

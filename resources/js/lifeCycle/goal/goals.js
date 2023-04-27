@@ -17,7 +17,7 @@ class Goals {
     getGoalsText() {
         var txt = '';
         for (const goal of this.getGoals()) {
-            txt += goal.getGoal() + '(id: "' + goal.getId() +'")\n';
+            txt += goal.getGoal() + '\n';
         }
         return txt.slice(0, txt.length - 1);
     }

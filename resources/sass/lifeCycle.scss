@@ -1,45 +1,84 @@
 
 .goal-zone {
-    display: flex;
-    box-sizing: border-box;
+    label {
+        display: block;
+        font-weight: bold;
+        font-size: 0.75em;
+        padding-bottom: 5px;
 
-    .goal {
-        width: 80%;
-        padding-right: 10px;
-
-        textarea {
-            width: 100%;
-            font-size: 16px;
-            box-sizing: border-box;
+        .small {
+            font-size: 0.7em;
         }
     }
 
-    .config {
-        width: 20%;
-        text-align: right;
+    textarea {
+        width: 100%;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .actions {
+        display: flex;
+
+        button {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 10px;
+            line-height: 20px;
+        }
     }
 }
 
 
 
+#world_history {
+    max-height: 80vh;
+    overflow-y: scroll;
+    padding: 20px 5px;
+    border: 1px solid $color_accent_2;
+    margin-bottom: 1em;
+}
 
 
 
 #world_listing {
     margin-bottom: 1em;
+    display:  flex;
 }
 
 .person {
+    text-align: center;
     max-width: calc(100% /4);
     margin-bottom: 1em;
     box-sizing: border-box;
     padding: 0px 10px;
 
-    .name {
-        font-weight: 800;
+
+    .top {
+        // display: flex;
+        // flex-wrap: wrap;
+        .head {
+            font-size: 3em;
+            line-height: 50px;
+        }
+
+        .name {
+            font-weight: 800;
+            font-size: 1.5em;
+            // color: $color_accent_1;
+            flex-grow: 1;
+            line-height: 20px;
+            padding-bottom: 10px;
+        }
+
+        .role {
+            font-weight: bold;
+            text-transform: capitalize;
+            line-height: 20px;
+        }
     }
 
-    .role, .goals {
+    .goals {
         font-size: 0.8em;
     }
 }
@@ -49,16 +88,28 @@
 
 
 .history_msg {
-    &.godmode {
+    padding: 15px 10px;
+
+    &.error .message {
+        color: $color_accent_4;
+    }
+
+    .infos {
+        display: flex;
+        padding-bottom: 5px;
+
         .name {
-            color: $color_accent_1;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+
+        .timestamp {
+            font-weight: bold;
+            font-size: 0.65em;
+            padding: 5px 0 0 0;
         }
     }
-    &:not(.godmode) {
-        .name {
-            color: $color_accent_2;
-        }
-    }
+
 
     .birth {
         color: $color_accent_3;
@@ -89,7 +140,7 @@
     h2 {
         font-size: 20px;
         margin-bottom: 10px;
-        text-shadow: black 3px 2px;
+        text-shadow: black 3px 2px 1px;
     }
     h3 {
         font-size: 15px;

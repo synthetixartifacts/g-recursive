@@ -1,7 +1,5 @@
 
 
-
-
 class WorldCycle {
 
     constructor(infos) {
@@ -10,18 +8,12 @@ class WorldCycle {
         this.name  = infos.name;
         this.goals = new Goals(infos.goals);
 
-        this.birther = null;
         this.persons = [];
         this.memory  = new Memory('world', 'World ' + infos.name + ' creation');
 
-        this.writerListing = new Writer($('#world_listing'), 'prepend');
-        this.writerActions = new Writer($('#world_history .long_discussion'));
-        this.writerTalking = new Writer($('#ai_chatting_chat .long_discussion'));
-
-        this.setState({
-            code: 'not_started',
-            label: 'Not Started'
-        });
+        this.writerListing = new Writer(this, $('#world_listing'), 'prepend');
+        this.writerActions = new Writer(this, $('#world_history'));
+        // this.writerTalking = new Writer($('#ai_chatting_chat'));
 
         this.$maxIteration       = $('#max-iteration');
         this.lastExecutedGPTCall = null;
@@ -32,14 +24,13 @@ class WorldCycle {
     ///////////////////////////////////////////////////
 
     killWorld() {
-        this.$maxIteration.val(0)
+        this.$maxIteration.val(0); // Set iteration to 0 left
     }
 
     startWorld() {
         // Start
         let worldHasStated = 'World started';
         // this.memory.writeMemory(worldHasStated);
-        this.setState('started', worldHasStated);
         this.writerActions.writeNotice(worldHasStated);
 
         // Goal
@@ -47,25 +38,23 @@ class WorldCycle {
         this.memory.writeMemory('Main goal:"' + mainGoal + '"', ['important']);
         this.writerActions.writeNotice('Main goal is: "' + mainGoal + '"');
 
-
         // Create birther
-        this.birther = new GPerson(worldConfig.birther, this);
+        const birther = new GPerson(worldConfig.birther, this);
 
         // Create Starter Person with new goal
-        this.birther.executeAction({
+        birther.executeAction({
             action : 'createAI',
             name   : worldConfig.first_ai.infos.name,
             role   : worldConfig.first_ai.infos.role,
             goal   : mainGoal
         });
 
-        const starterPerson = this.findPersonByName(worldConfig.first_ai.infos.name);
+        const stan = this.findPersonByName(worldConfig.first_ai.infos.name);
 
         // Ask Starter to do his first move
-        // starterPerson.talkTo(worldConfig.firstMsg);
-        starterPerson.executeActions([{
+        stan.executeActions([{
             action : 'talkToAI',
-            name   : starterPerson.getName(),
+            name   : stan.getName(),
             message: worldConfig.first_ai.firstMsg
         }]);
     }
@@ -73,16 +62,6 @@ class WorldCycle {
     ///////////////////////////////////////////////////
     // GET
     ///////////////////////////////////////////////////
-
-    setState(code, label) {
-        $('#status').html(label);
-
-        this.state = {
-            code: code,
-            label: label
-        };
-    }
-
     getId() {
         return this.id;
     }
@@ -93,6 +72,27 @@ class WorldCycle {
         return this.role;
     }
 
+    ///////////////////////////////////////////////////
+    // GET PERSONS
+    ///////////////////////////////////////////////////
+    findPersonPositionByName(name) {
+        var position = 1;
+        var found = false;
+
+        var findPerson = false;
+        for (const person of this.persons) {
+            if (person.name == name) {
+                findPerson = person;
+                found = true;
+            }
+            if (!found) {
+                position++;
+            }
+        }
+
+
+        return position;
+    }
 
     findPersonByName(name) {
         var findPerson = false;

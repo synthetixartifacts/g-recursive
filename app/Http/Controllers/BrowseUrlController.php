@@ -19,12 +19,13 @@ class BrowseUrlController extends Controller
 
                 $client = new Client();
                 $response = $client->request('GET', $url, [
-                    'verify' => false,
-                    'http_errors' => false // Set to false to prevent Guzzle from throwing exceptions for HTTP errors
+                    'verify'      => false,
+                    'http_errors' => false   // Set to false to prevent Guzzle from throwing exceptions for HTTP errors
                 ]);
 
                 $statusCode = $response->getStatusCode();
                 $results    = 'An error with the browseUrl has happened.';
+
 
                 if ($statusCode >= 200 && $statusCode < 300) {
                     $html = $response->getBody()->getContents();

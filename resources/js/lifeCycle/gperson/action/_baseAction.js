@@ -20,7 +20,7 @@ class ActionBase {
     }
 
     writeMemoryStart(infos) {
-        this.world.writerTalking.writeMsgFromSomeone(this.person.getName(), 'Non configured action');
+        // this.world.writerTalking.writeMsgFromSomeone(this.person.getName(), 'Non configured action');
         // this.world.writerActions.writeMsgFromSomeone('to: ' + this.person.getName(), 'asked to talk : ' + infos.message);
         // Add infos to memory files
         // this.world.memory.writeMemory(this.person.getName() + ' was asked: "' + infos.message + '"');

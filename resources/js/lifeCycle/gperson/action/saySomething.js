@@ -23,7 +23,7 @@ class ActionSaySomething extends ActionBase {
     }
 
     writeMemoryEnd(infos) {
-        this.world.writerTalking.writeMsgFromSomeone(this.person.getName(), infos.message);
+        this.world.writerActions.writeMsgFromSomeone(this.person.getName(), infos.message);
         this.world.memory.writeMemory(this.person.getName() + ' said: "' + infos.message + '"');
         this.person.memory.writeMemory('You said: "' + infos.message + '"');
     }

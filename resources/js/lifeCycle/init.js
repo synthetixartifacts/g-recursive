@@ -51,21 +51,22 @@ $(function() {
         }
 
         $("html, body").animate({
-            scrollTop: $('.discussion .setting_global').offset().top - 100
+            scrollTop: $('#main-goal').offset().top - 50
         }, 600);
 
 
         thisWorld = new WorldCycle(
             {
-                id: 'test',
+                id: 'grecursive',
                 name: 'name',
                 goals: [$('#main-goal').val()]
             }
         );
 
         thisWorld.startWorld();
-
     });
+
+    // Enable Start button
     $('#start_it').removeClass('disabled');
 
 

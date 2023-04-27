@@ -1,7 +1,8 @@
 
 
 class Writer {
-    constructor($div, method = 'append') {
+    constructor(world, $div, method = 'append') {
+        this.world  = world;
         this.div    = $div;
         this.method = method;
     }
@@ -16,9 +17,11 @@ class Writer {
         }
     }
 
-    writeNotice(msg) {
+    writeNotice(msg, error = false) {
+        const classError = error ? 'error' : '';
+
         let html = '';
-        html += '<div class="history_msg"><div class="infos">';
+        html += '<div class="history_msg ' + classError + '"><div class="infos">';
         html += this.getTimeHtml();
         html += '</div><div class="message">';
         html += msg;
@@ -28,9 +31,11 @@ class Writer {
     }
 
     writeMsgFromSomeone(name, msg) {
+        var person_position = this.world.findPersonPositionByName(name);
+
         let html = '';
-        html += '<div class="history_msg someone"><div class="infos">';
-        html += '<div class="name">' + name + '</div>';
+        html += '<div class="history_msg"><div class="infos">';
+        html += '<div class="name color_accent_' + person_position + '">' + name + '</div>';
         html += this.getTimeHtml();
         html += '</div><div class="message">';
         html += msg;
@@ -49,12 +54,14 @@ class Writer {
 
     addPerson(createPerson) {
         let html = '';
-        html += '<div class="person ' + createPerson.id +  '"><div class="name">';
+        html += '<div class="person ' + createPerson.name +  '"><div class="top"><div class="head">';
+            html += '🤖';
+        html += '</div><div class="name color_accent_' + this.world.persons.length + '">';
             html += createPerson.name;
         html += '</div><div class="role">';
-            html += '<u>Role:</u> ' + createPerson.role;
-            html += '</div><div class="goals">';
-            html += '<u>Goals:</u> ' + createPerson.goals.getGoalsText();
+            html += createPerson.role;
+            html += '</div></div><div class="goals">';
+            html += createPerson.goals.getGoalsText();
         html += '</div></div>';
 
         this.realWrite(html);
