@@ -7,23 +7,23 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Infos -->
-<title></title>
-<meta name="title" content="" />
-<meta name="description" content="" />
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="copyright" content="" />
+<title>AI-Driven Autonomous Virtual World | G-Recursive</title>
+<meta name="title" content="G Recursive" />
+<meta name="description" content="Experience the power of AI in our interactive virtual world where autonomous characters intelligently work together to achieve your set goals. Watch the AI come to life and transform the world around them." />
+<meta name="keywords" content="AI, artificial intelligence, virtual world, interactive environment, autonomous characters, AI-powered, goal-oriented, AI simulation">
+<meta name="author" content="g-prompter">
+<meta name="copyright" content="g-prompter" />
 
 <!-- SOCIALS META -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
-<meta property="og:url" content="" />
-<meta property="og:site_name" content="" />
+<meta property="og:title" content="AI-Driven Autonomous Virtual World | G-Recursive" />
+<meta property="og:description" content="Experience the power of AI in our interactive virtual world where autonomous characters intelligently work together to achieve your set goals. Watch the AI come to life and transform the world around them." />
+<meta property="og:url" content="https://recursive.g-prompter.com/" />
+<meta property="og:site_name" content="G Recursive" />
 <meta property="og:image" content="<?= $imageShare; ?>" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="AI-Driven Autonomous Virtual World | G-Recursive">
+<meta name="twitter:description" content="Experience the power of AI in our interactive virtual world where autonomous characters intelligently work together to achieve your set goals. Watch the AI come to life and transform the world around them.">
 <meta name="twitter:image" content="<?= $imageShare; ?>">
 
 
@@ -34,7 +34,7 @@
 <link rel="manifest" href="{{ Vite::asset('resources/images/fav/site.webmanifest') }}">
 
 <!-- URLS -->
-<link rel="canonical" href="" />
+<link rel="canonical" href="https://recursive.g-prompter.com/" />
 
 <!-- Fonts - DEFER -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Raleway:100,300,600,800,900&display=swap" onload="this.rel='stylesheet'">

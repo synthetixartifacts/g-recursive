@@ -86,7 +86,7 @@ class ActionTalkToAI extends ActionBase {
             var mnessageWorld = 'Responded with ' + count + ' action(s): ' + actionListName;
 
             this.world.writerActions.writeMsgFromSomeone(this.newPerson.getName(), mnessageWorld);
-            this.newPerson.memory.writeMemory(actionListName);
+            // this.newPerson.memory.writeMemory(actionListName);
         }
 
         // End message
@@ -208,9 +208,9 @@ class ActionTalkToAI extends ActionBase {
         // Add message
         // FORMAT MESSAGE
         var lastMessage = this.getMemoryTextForGptAPI() + '\n\n';
-        lastMessage += worldConfig.person.msg.prefix;
+        lastMessage += $('#person_user_prefix').val();
         lastMessage += infos.message;
-        lastMessage += worldConfig.person.msg.sufix;
+        lastMessage += $('#person_user_suffix').val();
 
         messages.push({ role: 'user', content: lastMessage });
 
@@ -220,12 +220,9 @@ class ActionTalkToAI extends ActionBase {
 
 
     getSystemMessage(infos) {
-        var systemMsg     = '';
-        var defaultSystem = worldConfig.person.system;
+        var systemMsg = '';
 
-        systemMsg += defaultSystem.prefix;
-
-        systemMsg += defaultSystem.content.replace('__name__', this.newPerson.getName()).replace('__role__', this.newPerson.getRole());
+        systemMsg += $('#person_system_content').val().replace('__name__', this.newPerson.getName()).replace('__role__', this.newPerson.getRole());
 
         // Goals
         const mainGoals = this.world.goals.getGoals();
@@ -248,7 +245,7 @@ class ActionTalkToAI extends ActionBase {
         // ACTIONS LIST
         systemMsg += this.getPromptListOfActions();
 
-        systemMsg += defaultSystem.suffix;
+        systemMsg += $('#person_system_suffix').val();
 
         return systemMsg;
     }
@@ -257,7 +254,7 @@ class ActionTalkToAI extends ActionBase {
     getPromptListOfActions() {
         var prompt = '';
 
-        prompt += worldConfig.actionsMsg.prefix;
+        prompt += $('#action_msg_prefix').val();
 
         // Loop through available actions
         for (const action of this.newPerson.actionslist) {
@@ -268,7 +265,7 @@ class ActionTalkToAI extends ActionBase {
             }
         }
 
-        prompt += worldConfig.actionsMsg.suffix;
+        prompt += $('#action_msg_suffix').val();
 
         return prompt;
     }

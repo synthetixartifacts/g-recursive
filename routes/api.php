@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\GoogleSearchController;
-use App\Http\Controllers\BrowseUrlController;
+// use App\Http\Controllers\GoogleSearchController;
+// use App\Http\Controllers\BrowseUrlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,8 @@ use App\Http\Controllers\BrowseUrlController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('/googleSearchResult', [GoogleSearchController::class, 'googleSearchResult']);
-Route::get('/browseUrl', [BrowseUrlController::class, 'browseUrl']);
+// Route::get('/googleSearchResult', [GoogleSearchController::class, 'googleSearchResult']);
+// Route::get('/browseUrl', [BrowseUrlController::class, 'browseUrl']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

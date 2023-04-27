@@ -42,7 +42,7 @@ class ActionBrowseUrl extends ActionBase {
                 self.person.executeActions([{
                     action : 'talkToAI',
                     name   : self.person.getName(),
-                    message: 'Content for ' + infos.url + ': \n' + JSON.stringify(response.content), // + ' Do not browse the same url back.'
+                    message: 'Content for ' + infos.url + ': \n' + JSON.stringify(response.content) + ' Do not browse the same url twice.'
                 }]);
             },
             error: function(error) {

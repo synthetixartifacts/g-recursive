@@ -83,5 +83,58 @@ $(function() {
     });
 
 
+
+    // Main Goal Cookie
+    // $('#main-goal').on('change', function() {
+    //     setCookie('main-goal', $('#main-goal').val(), 7);
+    // });
+    // var temp = getCookie('main-goal');
+    // if (temp) {
+    //     $('#main-goal').val(temp);
+    // }
+
+
+    // Set value for default input
+    $('#main-goal').val(worldConfig.default_goal);
+
+    $('#first_ai_name').val(worldConfig.first_ai.infos.name);
+    $('#first_ai_role').val(worldConfig.first_ai.infos.role);
+    $('#first_ai_message').val(worldConfig.first_ai.firstMsg);
+
+    $('#person_system_content').val(worldConfig.person.system.content);
+    $('#person_system_suffix').val(worldConfig.person.system.suffix);
+    $('#person_user_prefix').val(worldConfig.person.msg.prefix);
+    $('#person_user_suffix').val(worldConfig.person.msg.sufix);
+
+    $('#action_msg_prefix').val(worldConfig.actionsMsg.prefix);
+    $('#action_msg_suffix').val(worldConfig.actionsMsg.sufix);
+
+    $('#user_retry_message').val(worldConfig.retryMessage);
+
+
+
+    var arrayOfElementsCookied = [
+        'main-goal',
+        'first_ai_name',
+        'first_ai_role',
+        'first_ai_message',
+        'person_system_content',
+        'person_system_suffix',
+        'person_user_prefix',
+        'person_user_suffix',
+        'action_msg_prefix',
+        'action_msg_suffix',
+        'user_retry_message',
+    ]
+
+    for (const elem of arrayOfElementsCookied) {
+        $('#' + elem).on('change', function() {
+            setCookie(elem, $('#' + elem).val(), 7);
+        });
+        var temp = getCookie(elem);
+        if (temp) {
+            $('#' + elem).val(temp);
+        }
+    }
 });
 

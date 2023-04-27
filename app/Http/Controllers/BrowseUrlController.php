@@ -61,32 +61,31 @@ class BrowseUrlController extends Controller
                         $header->outertext = '';
                     }
 
-
-
                     // TODO - Try to remove all element with *footer* and *header* class
 
 
                     // Loop through all <a> tags
-                    foreach ($dom->find('a') as $a) {
-                        // Get the href attribute
-                        $href = $a->getAttribute('href');
+                    // foreach ($dom->find('a') as $a) {
+                    //     // Get the href attribute
+                    //     $href = $a->getAttribute('href');
 
-                        // Remove all attributes
-                        foreach ($a->getAllAttributes() as $attr => $val) {
-                            $a->removeAttribute($attr);
-                        }
+                    //     // Remove all attributes
+                    //     foreach ($a->getAllAttributes() as $attr => $val) {
+                    //         $a->removeAttribute($attr);
+                    //     }
 
-                        // Add back only the href attribute
-                        $a->setAttribute('href', $href);
-                    }
+                    //     // Add back only the href attribute
+                    //     $a->setAttribute('href', $href);
+                    // }
 
 
                     // Remove all tags except <a>
-                    $allowedTags = '<a>';
+                    $allowedTags = '';
                     $bodyContent = strip_tags($dom->find('body', 0)->innerHtml(), $allowedTags);
 
                     // Remove spacing \s
                     $results = preg_replace('/\s\s+/', ' ', $bodyContent);
+                    $results = preg_replace('/\n\n+/', ' ', $bodyContent);
                     $results = mb_substr($results, 0, 3000);
                 }
 

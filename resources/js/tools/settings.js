@@ -70,7 +70,6 @@ $(document).ready(function() {
     }
 
 
-
     // CPM
     $('#max-call-min').on('change', function() {
         setCookie('max-call-min', $('#max-call-min').val(), 7);
@@ -78,6 +77,15 @@ $(document).ready(function() {
     var temp = getCookie('max-call-min');
     if (temp) {
         $('#max-call-min').val(temp);
+    }
+
+    // Max Iteration
+    $('#max-iteration').on('change', function() {
+        setCookie('max-iteration', $('#max-iteration').val(), 7);
+    });
+    var temp = getCookie('max-iteration');
+    if (temp) {
+        $('#max-iteration').val(temp);
     }
 
 });

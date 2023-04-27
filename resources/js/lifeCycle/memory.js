@@ -1,8 +1,5 @@
 
 
-
-
-
 class Memory {
 
     constructor(type, firstMemory = '') {

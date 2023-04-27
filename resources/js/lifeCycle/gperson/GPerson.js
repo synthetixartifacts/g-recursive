@@ -193,7 +193,7 @@ class GPerson {
 
             // TODO - Add last message sent
 
-            var msgBack = worldConfig.retryMessage;
+            var msgBack = $('#user_retry_message').val();
 
             // Retrigger talk to continue somewhere
             this.executeActions([{

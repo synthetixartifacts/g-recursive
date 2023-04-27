@@ -9,7 +9,7 @@ class WorldCycle {
         this.goals = new Goals(infos.goals);
 
         this.persons = [];
-        this.memory  = new Memory('world', 'World ' + infos.name + ' creation');
+        this.memory  = new Memory('world');
 
         this.writerListing = new Writer(this, $('#world_listing'), 'prepend');
         this.writerActions = new Writer(this, $('#world_history'));
@@ -44,18 +44,18 @@ class WorldCycle {
         // Create Starter Person with new goal
         birther.executeAction({
             action : 'createAI',
-            name   : worldConfig.first_ai.infos.name,
-            role   : worldConfig.first_ai.infos.role,
+            name   : $('#first_ai_name').val(),
+            role   : $('#first_ai_role').val(),
             goal   : mainGoal
         });
 
-        const stan = this.findPersonByName(worldConfig.first_ai.infos.name);
+        const stan = this.findPersonByName($('#first_ai_name').val());
 
         // Ask Starter to do his first move
         stan.executeActions([{
             action : 'talkToAI',
             name   : stan.getName(),
-            message: worldConfig.first_ai.firstMsg
+            message: $('#first_ai_message').val()
         }]);
     }
 

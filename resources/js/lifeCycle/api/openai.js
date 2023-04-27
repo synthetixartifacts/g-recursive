@@ -28,7 +28,9 @@ class OpenAiAPI {
         // prof like to answer first use it as profMsg
         if (startIndex > 0) {
             var firstMsg = contentMessage.slice(0, startIndex - 1); // Trim a bit
-            formatedResponse.first_message = this.gptFormatGPTMessage(firstMsg);
+            if (firstMsg.length > 5) {
+                formatedResponse.first_message = this.gptFormatGPTMessage(firstMsg);
+            }
         }
 
         // Get actions
@@ -37,8 +39,10 @@ class OpenAiAPI {
 
         // prof like to answer at the end too - use it as profMsg
         if (endIndex < contentMessage.length - 10) {
-            var lastMsg = contentMessage.slice(endIndex, contentMessage.length); // Trim a bit
-            formatedResponse.last_message = this.gptFormatGPTMessage(lastMsg);
+            var lastMsg = contentMessage.slice(endIndex + 2, contentMessage.length); // Trim a bit
+            if (lastMsg.length > 5) {
+                formatedResponse.last_message = this.gptFormatGPTMessage(lastMsg);
+            }
         }
 
         // console.warn('warn', formatedResponse);
