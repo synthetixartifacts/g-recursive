@@ -1,0 +1,63 @@
+// DIV SEPARATOR
+
+.separator-dark {
+    height: $padding_half;
+    background-color: $color_bg_dark;
+}
+
+.separator-color {
+    height: 5px;
+    display: flex;
+
+    div {
+        background-color: white;
+        width: 10%;
+
+        &:nth-child(1) {
+            background-color: $color_accent_1;
+            width: 15%;
+        }
+
+        &:nth-child(2) {
+            background-color: $color_accent_2;
+            width: 5%;
+        }
+
+        &:nth-child(3) {
+            background-color: $color_accent_3;
+            width: 2%;
+        }
+
+        &:nth-child(4) {
+            background-color: $color_accent_4;
+            width: 23%; // 45
+        }
+
+        &:nth-child(5) {
+            background-color: $color_accent_5;
+            width: 5%;
+        }
+
+        &:nth-child(6) {
+            background-color: $color_accent_6;
+        }
+
+        &:nth-child(7) {
+            background-color: $color_accent_1;
+        }
+
+        &:nth-child(8) {
+            background-color: $color_accent_1;
+            width: 5%;
+        }
+
+        &:nth-child(9) {
+            background-color: $color_accent_2;
+        }
+
+        &:nth-child(10) {
+            background-color: $color_accent_3;
+            width: 15%;
+        }
+    }
+}

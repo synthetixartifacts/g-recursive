@@ -1,0 +1,48 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "axios": "^1.1.2",
+    "jquery": "^3.6.4",
+    "laravel-vite-plugin": "^0.7.4",
+    "sass": "^1.60.0",
+    "vite": "^4.0.0"
+  },
+  "name": "porfolio",
+  "description": "",
+  "version": "1.0.0",
+  "main": "vite.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "asynckit": "^0.4.0",
+    "combined-stream": "^1.0.8",
+    "delayed-stream": "^1.0.0",
+    "esbuild": "^0.17.14",
+    "follow-redirects": "^1.15.2",
+    "form-data": "^4.0.0",
+    "function-bind": "^1.1.1",
+    "has": "^1.0.3",
+    "is-core-module": "^2.11.0",
+    "mime-db": "^1.52.0",
+    "mime-types": "^2.1.35",
+    "nanoid": "^3.3.6",
+    "path-parse": "^1.0.7",
+    "picocolors": "^1.0.0",
+    "picomatch": "^2.3.1",
+    "postcss": "^8.4.21",
+    "proxy-from-env": "^1.1.0",
+    "resolve": "^1.22.1",
+    "rollup": "^3.20.2",
+    "source-map-js": "^1.0.2",
+    "supports-preserve-symlinks-flag": "^1.0.0",
+    "vite-plugin-full-reload": "^1.0.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

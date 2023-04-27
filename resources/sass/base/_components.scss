@@ -1,0 +1,98 @@
+// BASIC COMPONENT
+
+
+@mixin transitionBase() {
+    transition: all .3s ease-in-out;
+}
+
+
+
+// LINK
+@mixin link_hover($status: 'default') {
+    z-index:2;
+
+    &::before {
+        content: '';
+        background-color: $color_accent_1;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        margin-left: 0px;
+        z-index: -1;
+        @include transitionBase();
+
+        @if $status == 'big' {
+            width: calc(100% + 10px);
+            bottom: 1px;
+            height: 5px;
+        }
+    }
+
+    &:hover::before {
+        bottom: -5px;
+        height: calc(100% + 10px);
+        width: calc(100% + 10px);
+        background-color: $color_accent_1;
+        margin-left: -5px;
+
+        @if $status == 'big' {
+            width: calc(100% + 30px);
+            margin-left: -15px;
+        }
+    }
+}
+
+// INPUT
+@mixin myInput($status: 'default') {
+    // outline: $color_red_dark !important;
+    -webkit-tap-highlight-color: transparent; // i.e. Nexus5/Chrome and Kindle Fire HD 7''
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+
+    padding: 10px 20px;
+    background: none;
+    font-weight: 600;
+    border: 2px solid $color_accent_1;
+    color: $color_base;
+
+    @include transitionBase();
+
+    &:hover {
+        color: $color_accent_3;
+        border-color: $color_accent_3;
+    }
+    &:focus {
+        border-color: $color_accent_3;
+    }
+
+    &.secondary {
+        border-color: $color_accent_3;
+
+        &:hover {
+            background: $color_accent_1;
+            border-color: $color_accent_1;
+            color: $color_base;
+        }
+    }
+
+    &.tiercary {
+        border-color: $color_accent_2;
+
+        &:hover {
+            background: $color_accent_1;
+            border-color: $color_accent_1;
+            color: $color_base;
+        }
+    }
+}
+
+// Font
+.mini {
+    font-size: 0.8em;
+}
+
+
+
+
+

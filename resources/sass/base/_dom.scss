@@ -1,0 +1,125 @@
+// DOM BALISE
+document,
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-weight: 300;
+    font-family: $font_base;
+    font-size: $font_size_default;
+
+    color: $color_base;
+    background-color: $color_bg_content;
+}
+
+
+h1, h2, h3, h4 {
+    font-family: $font_title;
+    margin-top: 0;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 2.5em;
+
+    @media (max-width: $size_down_mobile) {
+        font-size: 2em;
+    }
+}
+
+h2 {
+    font-size: 1.8sem;
+
+    @media (max-width: $size_down_mobile) {
+        font-size: 1.4em;
+    }
+}
+
+h3 {
+    font-size: 1.1em;
+
+    @media (max-width: $size_down_mobile) {
+        font-size: 1em;
+    }
+}
+
+
+hr {
+    &.clear {
+        clear: both;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+
+a, .link {
+    color: $color_base;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    font-weight: 800;
+    @include link_hover();
+    z-index: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    @include myInput();
+    text-shadow: none;
+}
+
+button, a.primary {
+    @include myInput();
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: $color_accent_1;
+    text-shadow: none;
+    font-size: 1.1em;
+
+    @media (min-width: $size_max_mobile) {
+        line-height: 45px;
+    }
+
+    &:hover {
+        background: $color_accent_3;
+        color: $color_base;
+    }
+
+    &.secondary {
+        background: $color_accent_3;
+
+        &:hover {
+            background: $color_accent_1;
+        }
+    }
+
+    &.tiercary {
+        background: $color_accent_2;
+
+        &:hover {
+            background: $color_accent_1;
+        }
+    }
+
+    &.disabled {
+        background: $color_grey;
+        cursor: not-allowed;
+
+        &:hover {
+            background: $color_grey;
+        }
+    }
+}
+
+p {
+    margin-bottom: 50px;
+}
