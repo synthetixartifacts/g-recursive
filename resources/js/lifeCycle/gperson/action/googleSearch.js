@@ -50,7 +50,7 @@ class ActionGoogleSearch extends ActionBase {
             self.person.executeActions([{
                 action : 'talkToAI',
                 name   : self.person.getName(),
-                message: 'your search results: ' + JSON.stringify(items) + ' Do not search the same thing twice.'
+                message: 'You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(response)
             }]);
         } catch (error) {
           console.error("Error fetching search results:", error);
@@ -70,7 +70,7 @@ class ActionGoogleSearch extends ActionBase {
                 self.person.executeActions([{
                     action : 'talkToAI',
                     name   : self.person.getName(),
-                    message: 'your search results: ' + JSON.stringify(response)
+                    message: 'You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(response)
                 }]);
             },
             error: function(error) {
