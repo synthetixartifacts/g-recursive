@@ -26,7 +26,7 @@ class WorldCycle {
         this.$maxIteration.val(0); // Set iteration to 0 left
 
         $('#kill_it').addClass('disabled');
-        $('#kill_it').removeClass('disabled');
+        $('#start_it').removeClass('disabled');
     }
 
     startWorld() {

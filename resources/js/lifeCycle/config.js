@@ -34,7 +34,7 @@ const worldConfig = {
         msg: {
             prefix: '',
             content: '',
-            sufix: '\nAlways act towards your goal. Never ask questions, impersonate another AI, or interact with non-existent AIs. Return the response as an array of actions that can be used in JSON.parse().',
+            sufix: '\nAlways act towards your goal. Never ask questions, impersonate another AI, or interact with non-existent AIs. Return the response as an array of actions that can be used in JSON.parse(). You MUST add at least use one and only one of the following in your JSON response: talkToAI,browseUrl,googleSearch.',
         },
 
         // TODO
@@ -44,7 +44,7 @@ const worldConfig = {
 
     actionsMsg: {
         prefix: '\nHere is the list of the only available actions you can take right now, do not alter the JSON format provided:',
-        suffix: '\n\nPerfect response look is only a JSON and multiple actions: [{"action": "createAI", "name": "AmsterdamTalker", "role": "Autonomous AI", "goal": "To talk about Amsterdam with another AI"}, {"action": "talkToAI", "name": "AmsterdamTalker", "message": "Hello AmsterdamTalker! Can we discuss about Amsterdam?"}]\n You need to at least use one: talkToAI,browseUrl,googleSearch or endAI.',
+        suffix: '\n\nPerfect response is only a JSON and multiple actions: [{"action": "createAI", "name": "AmsterdamTalker", "role": "Autonomous AI", "goal": "To talk about Amsterdam with another AI"}, {"action": "talkToAI", "name": "AmsterdamTalker", "message": "Hello AmsterdamTalker! Can we discuss about Amsterdam?"}]',
     },
 
     retryMessage: 'Goal(s) still not achieved. Please validate the memory files and proceed accordingly without repeating yourself.',

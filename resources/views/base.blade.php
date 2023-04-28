@@ -62,13 +62,15 @@ AI have actions they can use by using JSON in their response.
 Currently, they can use the following list of actions (which will be enhanced over time):
 <br/>
 <ul>
-    <li>Create another AI agent</li>
-    <li>Talk to a specific agent</li>
-    <li>Add a goal</li>
-    <li>Complete a goal</li>
-    <li>Write in memory</li>
-    <li>Perform a Google search</li>
-    <li>Browse a URL</li>
+    <li>Create another AI agent (createAI)</li>
+    <li>Talk to a specific agent (talkToAI)</li>
+    <li>Add a goal (addGoal)</li>
+    <li>Complete a goal (completeGoal)</li>
+    <li>Write in memory (writeMemory)</li>
+    <li>Perform a Google search (googleSearch)</li>
+    <li>Browse a URL (browseUrl)</li>
+    <li>Add a comment (comment)</li>
+    <li>Set all goals as complished (endAI)</li>
 </ul>
 
 If you have any suggestions for new actions, please send them to me 😀

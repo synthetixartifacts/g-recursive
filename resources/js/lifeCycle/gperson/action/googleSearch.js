@@ -14,7 +14,7 @@ class ActionGoogleSearch extends ActionBase {
 
     writeMemoryStart(infos) {
         this.world.writerActions.writeMsgFromSomeone(this.person.getName(), 'Google Search: ' + infos.query);
-        this.person.memory.writeMemory('googleSearch : "' + infos.query + '"');
+        this.person.memory.writeMemory('you googleSearch: "' + infos.query + '"');
     }
 
     async execute(infos) {
