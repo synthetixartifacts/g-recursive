@@ -32,8 +32,7 @@ class ActionSaySomething extends ActionBase {
         this.writeMemoryEnd(infos);
 
         return {
-            executed: true,
-            newActions: []
+            executed: true
         };
     }
 }

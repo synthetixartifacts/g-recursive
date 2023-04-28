@@ -32,8 +32,7 @@ class ActionCreateAi extends ActionBase {
             this.person.memory.writeMemory('You tried to duplicate an AI, you can NOT do that');
 
             return {
-                executed: false,
-                newActions: [],
+                executed: false
             };
 
         }
@@ -58,8 +57,7 @@ class ActionCreateAi extends ActionBase {
         this.world.writerListing.addPerson(newPerson);
 
         return {
-            executed: true,
-            newActions: [],
+            executed: true
         };
     }
 }

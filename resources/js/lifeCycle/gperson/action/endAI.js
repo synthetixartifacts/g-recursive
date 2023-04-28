@@ -22,8 +22,7 @@ class ActionEndAI extends ActionBase {
         this.person.goals.accomplishAllGoals();
 
         return {
-            executed: true,
-            newActions: []
+            executed: true
         }
     }
 }

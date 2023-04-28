@@ -22,8 +22,7 @@ class ActionCompleteGoal extends ActionBase {
         this.person.goals.accomplishGoal(infos.id);
 
         return {
-            executed: true,
-            newActions: []
+            executed: true
         };
     }
 }

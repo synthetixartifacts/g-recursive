@@ -44,6 +44,13 @@ class GPerson {
         // Prioritise action?
         // check if googleSearch and talktoAi, maybe we should keep both on these ones in that order...
 
+
+        // try to organized action.
+
+
+
+
+
         // Todo make this better somewhere
         // CUT whenever I see talkToAI / googleSearch / browseUrl
         var toContinueToAdd = true;
@@ -134,22 +141,15 @@ class GPerson {
         }
 
         var returnExec = {
-            executed: true,
-            newActions: [],
+            executed: true
         };
 
         const realAction = this.getProperAction(action.action);
-        var   returnExec = realAction.execute(action);
-        var   newActions = returnExec.newActions;
+        realAction.execute(action);
 
-        // If not async
-        if (!realAction.async && newActions.length > 0) {
-            // Execute following actions - TODO put this outside or maybe add criticity level of task
-            this.executeActions(newActions);
-        } else if (realAction.async) {
+        if (realAction.async) {
             returnExec = {
-                executed: false,
-                newActions: [],
+                executed: false
             }
         }
 

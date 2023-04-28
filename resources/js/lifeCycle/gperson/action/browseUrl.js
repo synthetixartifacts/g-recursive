@@ -25,8 +25,7 @@ class ActionBrowseUrl extends ActionBase {
         await this.callProxy(infos);
 
         return {
-            executed: false,
-            newActions: []
+            executed: false
         };
     }
 

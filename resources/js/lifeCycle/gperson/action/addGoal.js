@@ -25,8 +25,7 @@ class ActionAddGoal extends ActionBase {
         $('.person.'+ findPerson.getName()).find('.goals').append('<br/>' + infos.goal);
 
         return {
-            executed: true,
-            newActions: []
+            executed: true
         };
     }
 }

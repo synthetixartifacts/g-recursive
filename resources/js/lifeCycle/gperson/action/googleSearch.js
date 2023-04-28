@@ -27,8 +27,7 @@ class ActionGoogleSearch extends ActionBase {
         }
 
         return {
-            executed: false,
-            newActions: []
+            executed: false
         };
     }
 

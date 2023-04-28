@@ -136,8 +136,7 @@ class ActionTalkToAI extends ActionBase {
         // Validate that we can call API
         if (!this.canTalkValidation(infos)) {
             return {
-                executed: false,
-                newActions: []
+                executed: false
             }
         }
 
@@ -167,7 +166,9 @@ class ActionTalkToAI extends ActionBase {
         if (typeof response !== "object" && response.includes('Error fetching')) {
             this.world.writerActions.writeNotice(response, true);
 
-            return { executed: false, newActions: [] };
+            return {
+                executed: false
+            };
         }
 
         // console.log('API RESPONSE', response);
@@ -181,8 +182,7 @@ class ActionTalkToAI extends ActionBase {
         // this.person.lastMessageGPT = response;
 
         return {
-            executed: true,
-            newActions: []
+            executed: true
         };
     }
 

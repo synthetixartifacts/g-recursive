@@ -22,6 +22,10 @@ class ActionExecJs extends ActionBase {
         } catch (error) {
             console.error('Error executing JavaScript code:', error);
         }
+
+        return {
+            executed: true
+        };
     }
 }
 

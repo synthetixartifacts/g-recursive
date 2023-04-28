@@ -22,8 +22,7 @@ class ActionWriteMemory extends ActionBase {
         }
 
         return {
-            executed: true,
-            newActions: []
+            executed: true
         }
     }
 }

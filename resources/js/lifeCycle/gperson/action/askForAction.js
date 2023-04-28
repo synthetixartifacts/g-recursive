@@ -25,8 +25,7 @@ class ActionAskForAction {
         $('#new_action').append('<br>New Action : ' + infos.message);
 
         return {
-            executed: true,
-            newActions: []
+            executed: true
         };
     }
 }
