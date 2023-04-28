@@ -20,13 +20,44 @@ class ActionGoogleSearch extends ActionBase {
     async execute(infos) {
         this.writeMemoryStart(infos);
 
-        await this.callProxy(infos);
+        if (googleApiKey != undefined && googleApiKey != null & googleApiKey != '') {
+            this.searchGoogle(infos);
+        } else {
+            await this.callProxy(infos);
+        }
 
         return {
             executed: false,
             newActions: []
         };
     }
+
+
+    async searchGoogle(infos) {
+        const self = this;
+        const url  = `https://www.googleapis.com/customsearch/v1?key=${googleApiKey}&cx=${googleCseId}&q=${encodeURIComponent(infos.query)}`;
+
+        try {
+            const response = await fetch(url);
+            const data     = await response.json();
+            var   items    = [];
+
+            if (data.items) {
+                data.items.forEach((item, index) => {
+                    items.push({url: item.link, title: item.title});
+                });
+            }
+
+            self.person.executeActions([{
+                action : 'talkToAI',
+                name   : self.person.getName(),
+                message: 'result are: ' + JSON.stringify(items) + ' Do not search the same thing twice.'
+            }]);
+        } catch (error) {
+          console.error("Error fetching search results:", error);
+        }
+    }
+
 
     callProxy(infos) {
         const self = this;

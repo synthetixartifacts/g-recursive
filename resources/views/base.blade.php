@@ -191,6 +191,13 @@ Know that the memory and the list of actions are the only things you can update.
 
 
 </div></div>
+
+<script>
+  const googleApiKey = '{{ config("app.google_api_key") }}';
+  const googleCseId = '{{ config("app.google_cse_id") }}';
+</script>
+
+
 @vite(['resources/js/lifeCycle/init.js'])
 
 @endsection

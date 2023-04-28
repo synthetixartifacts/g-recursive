@@ -7,7 +7,7 @@ class ActionSaySomething extends ActionBase {
         super(world, person);
 
         this.machine = 'comment';
-        this.desc    = 'to comment what you are doing';
+        this.desc    = 'to comment on what you\'re doing';
         this.format  = '{"action":"comment","message":"message"}';
         this.async   = false;
         this.enable  = true;

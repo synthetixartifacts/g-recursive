@@ -37,7 +37,6 @@ const worldConfig = {
             sufix: '\nAlways act towards your goal. Never ask questions, impersonate another AI, or interact with non-existent AIs. Return the response as an array of actions that can be used in JSON.parse(). You MUST add at least use one and only one of the following in your JSON response: talkToAI,browseUrl,googleSearch.',
         },
 
-        // TODO
         maxNbPerson: 10,
     },
 

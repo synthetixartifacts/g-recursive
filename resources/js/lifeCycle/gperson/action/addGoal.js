@@ -22,8 +22,7 @@ class ActionAddGoal extends ActionBase {
 
         findPerson.goals.addGoal(infos.goal);
 
-        // TODO - seems like the goal is not added properly
-        // Write goal as HTML
+        $('.person.'+ findPerson.getName()).find('.goals').append('<br/>' + infos.goal);
 
         return {
             executed: true,

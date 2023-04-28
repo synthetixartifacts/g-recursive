@@ -12,12 +12,12 @@ class ActionEndAI extends ActionBase {
     }
 
     execute(infos) {
-        this.world.writerActions.writeMsgFromSomeone(this.person.getName(), ' world has been terminated.');
+        this.world.writerActions.writeMsgFromSomeone(this.person.getName(), 'All goals are complete.');
         console.warn(this.person.getName() + ' ------ world has been terminated');
 
         // Complete goals
-        this.world.memory.writeMemory(this.person.getName() + ' accomplised all of his goals');
-        this.person.memory.writeMemory('You accomplised all of your goals');
+        // this.world.memory.writeMemory(this.person.getName() + ' accomplished all of his goals');
+        this.person.memory.writeMemory('You accomplished all of your goals');
 
         this.person.goals.accomplishAllGoals();
 

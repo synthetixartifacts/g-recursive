@@ -7,7 +7,7 @@ class ActionTalkToAI extends ActionBase {
         super(world, person);
 
         this.machine = 'talkToAI';
-        this.desc    = 'to send a message/command to an AI [mandatory]';
+        this.desc    = 'to send a message/command to an AI';
         this.format  = '{"action":"talkToAI","name":"AI name","message":"Message to send to that AI"}';
         this.async   = true;
 
@@ -67,7 +67,7 @@ class ActionTalkToAI extends ActionBase {
         // var memoryText = 'You answered this: ' + infos.first_message + ' ' + JSON.stringify(infos.actions) + ' ' + infos.last_message;
         // this.newPerson.memory.writeMemory(memoryText);
 
-        // ACcion BACK
+        // Action BACK
         if (infos.actions.length > 0) {
             var actionListName = '';
             var count = 0;
@@ -235,14 +235,21 @@ class ActionTalkToAI extends ActionBase {
             systemMsg += number + '. ' + mainGoals[i].getGoalText() + '\n';
         }
 
-        if (this.person.getName() == 'Prof') {
-            const goals = this.newPerson.goals.getGoals();
-            systemMsg += '\nYour goals:\n';
-            for (let i = 0; i < goals.length; i++) {
+        // No prof goal
+        const goals = this.newPerson.goals.getGoals();
+        var minGoalSize = 1;
+        var i = 0;
+        if (this.person.getName() == 'Stan') {
+            minGoalSize = 2;
+            i = 1;
+        }
+
+        if (goals.length >= minGoalSize) {
+            systemMsg += 'Your goals:\n';
+            for (i; i < goals.length; i++) {
                 var number = i + 1;
-                systemMsg += number + '. ' + mainGoals[i].getGoalText() + '\n';
+                systemMsg += number + '. ' + goals[i].getGoalText() + '\n';
             }
-            systemMsg += '\n';
         }
 
         // ACTIONS LIST
@@ -264,7 +271,7 @@ class ActionTalkToAI extends ActionBase {
             if (action.enable) {
                 prompt += '\n- "' + action.machine + '" ';
                 prompt += action.desc;
-                prompt += ' (response format: ' + action.format + ')';
+                prompt += ' (format: ' + action.format + ')';
             }
         }
 

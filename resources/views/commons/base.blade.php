@@ -20,14 +20,14 @@
     </div>
 
 
-    <!-- Google tag (gtag.js) TODO - CHANGE THIS -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EYJS2M6H0"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL3E4GVZR0"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-6EYJS2M6H0');
+        gtag('config', 'G-JL3E4GVZR0');
     </script>
 </body>
 </html>

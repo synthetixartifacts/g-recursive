@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
+    // Custom things
+    'google_api_key' => env('GOOGLE_API_KEY'),
+    'google_cse_id'  => env('GOOGLE_CSE_ID'),
 
     /*
     |--------------------------------------------------------------------------
