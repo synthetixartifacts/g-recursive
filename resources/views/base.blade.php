@@ -24,7 +24,6 @@
 
     <div class="actions">
         <button id="start_it" class="primary disabled">Start world</button>
-        <!-- <button id="stop_it" class="tiercary disabled">Stop</button> -->
         <button id="kill_it" class="secondary disabled">End World</button>
     </div>
 

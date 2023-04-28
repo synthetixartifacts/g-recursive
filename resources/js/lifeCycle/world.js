@@ -13,7 +13,6 @@ class WorldCycle {
 
         this.writerListing = new Writer(this, $('#world_listing'), 'prepend');
         this.writerActions = new Writer(this, $('#world_history'));
-        // this.writerTalking = new Writer($('#ai_chatting_chat'));
 
         this.$maxIteration       = $('#max-iteration');
         this.lastExecutedGPTCall = null;
@@ -25,6 +24,9 @@ class WorldCycle {
 
     killWorld() {
         this.$maxIteration.val(0); // Set iteration to 0 left
+
+        $('#kill_it').addClass('disabled');
+        $('#kill_it').removeClass('disabled');
     }
 
     startWorld() {
@@ -89,7 +91,6 @@ class WorldCycle {
                 position++;
             }
         }
-
 
         return position;
     }

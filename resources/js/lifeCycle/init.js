@@ -76,9 +76,6 @@ $(function() {
             return;
         }
 
-        $killButton.addClass('disabled');
-        $startButton.removeClass('disabled');
-
         thisWorld.killWorld();
     });
 

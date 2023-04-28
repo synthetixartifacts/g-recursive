@@ -123,9 +123,9 @@ class GPerson {
         console.warn(this.getName() + ' ----- EXECUTE ACTION', action);
 
         // Validate max iteration
-        this.world.$maxIteration.val(this.world.$maxIteration.val() - 1);
         if (this.world.$maxIteration.val() <= 0) {
             this.world.writerActions.writeNotice('Max iteration achieved - World Ended');
+            this.world.killWorld();
             console.warn('WORLD ENDED  ----- Max iteration achieved');
             return false;
         }

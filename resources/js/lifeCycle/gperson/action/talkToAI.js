@@ -155,6 +155,9 @@ class ActionTalkToAI extends ActionBase {
         console.log('API SENT');
         console.warn(rawSent);
 
+
+        this.world.$maxIteration.val(this.world.$maxIteration.val() - 1);
+
         var response = await this.openAiAPI.gptApiCall(realMsg);
 
         // Responded
