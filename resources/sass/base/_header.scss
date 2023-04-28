@@ -93,8 +93,9 @@
 
     .menu-mobile-bg {
         top: 0;
-        right: 0;
-        position: absolute;
+        right: 100px;
+        overflow: hidden;
+        position: fixed;
         z-index: 1;
         width: 0;
         height: 0;

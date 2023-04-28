@@ -16,8 +16,8 @@
                 <a href="https://www.g-prompter.com/en/contact" target="_blank">
                     Contact
                 </a>
-                <a href="/" target="_blank">
-                    G-P
+                <a href="https://www.g-prompter.com/en" target="_blank">
+                    G-Prompter
                 </a>
                 <a href="https://github.com/synthetixartifacts/g-recursive" target="_blank">
                     Github
