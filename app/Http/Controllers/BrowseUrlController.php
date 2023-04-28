@@ -24,7 +24,7 @@ class BrowseUrlController extends Controller
                 ]);
 
                 $statusCode = $response->getStatusCode();
-                $results    = 'An error with the browseUrl has happened.';
+                $results    = 'An error with the browseUrl has happened. Could be a 404.';
 
 
                 if ($statusCode >= 200 && $statusCode < 300) {

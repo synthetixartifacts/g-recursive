@@ -7,7 +7,7 @@ class ActionBrowseUrl extends ActionBase {
         super(world, person);
 
         this.machine = 'browseUrl';
-        this.desc    = 'will send you back the content of the url';
+        this.desc    = 'will send you back the content of the url. Last resort action.';
         this.format  = '{"action":"browseUrl","url":"url to browse"}';
         this.async   = true;
     }
