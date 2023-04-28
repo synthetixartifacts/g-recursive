@@ -25,7 +25,7 @@ class GPerson {
         this.actionslist.push(new ActionBrowseUrl(world, this));
         this.actionslist.push(new ActionAskForAction(world, this));
         this.actionslist.push(new ActionAddGoal(world, this));
-        // // this.actionslist.push(new ActionExecJs(world, this));
+        this.actionslist.push(new ActionExecJs(world, this));
         // this.actionslist.push(new ActionExecPHP(world, this));
         // this.actionslist.push(new ActionAskUserInfos(world, this));
 
@@ -39,6 +39,11 @@ class GPerson {
         var sortedActions = [];
 
         // Add rules for order
+
+        // TODO - Validate action list on person to make sure that it was not already executed
+        // Prioritise action?
+        // check if googleSearch and talktoAi, maybe we should keep both on these ones in that order...
+
         // Todo make this better somewhere
         // CUT whenever I see talkToAI / googleSearch / browseUrl
         var toContinueToAdd = true;
@@ -69,8 +74,6 @@ class GPerson {
                 }
             }
         }
-
-
 
         var returnAction = [];
         var asyncFunction = null;
@@ -191,8 +194,9 @@ class GPerson {
             //     console.warn('WTF', this.lastMessageGPT);
             // }
 
-            // TODO - Add last message sent
 
+            // TODO - Add last message sent
+            // TODO - Validate last action to check if it forgot to send a talkToAI - almost certain.
             var msgBack = $('#user_retry_message').val();
 
             // Retrigger talk to continue somewhere
