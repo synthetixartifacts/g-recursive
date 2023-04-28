@@ -103,6 +103,12 @@ class OpenAiAPI {
             // Check error
             if (data.error) {
                 console.error('ERROR API CALL - ', data.error);
+
+                // Check for missing api key
+                if (data.error.message.includes('provide an API key')) {
+                    $('#settings-gp').click();
+                }
+
                 return 'Error fetching GPT response - DATA: ' + data.error.message;
             }
 
