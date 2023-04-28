@@ -14,7 +14,7 @@ class ActionGoogleSearch extends ActionBase {
 
     writeMemoryStart(infos) {
         this.world.writerActions.writeMsgFromSomeone(this.person.getName(), 'Google Search: ' + infos.query);
-        this.person.memory.writeMemory('you googleSearch: "' + infos.query + '"');
+        // this.person.memory.writeMemory('you googleSearch: "' + infos.query + '"');
     }
 
     async execute(infos) {
@@ -41,11 +41,17 @@ class ActionGoogleSearch extends ActionBase {
             const data     = await response.json();
             var   items    = [];
 
+            var maxItem = 0;
             if (data.items) {
                 data.items.forEach((item, index) => {
-                    items.push({url: item.link, title: item.title});
+                    maxItem++;
+                    if (maxItem <= 6) {
+                        items.push({url: item.link, title: item.title});
+                    }
                 });
             }
+
+            this.person.memory.writeMemory('You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(items));
 
             self.person.executeActions([{
                 action : 'talkToAI',
@@ -66,6 +72,8 @@ class ActionGoogleSearch extends ActionBase {
             data: {},
             success: function(response) {
                 console.log('Google Search Response for: ' + infos.query, response);
+
+                this.person.memory.writeMemory('You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(items));
 
                 self.person.executeActions([{
                     action : 'talkToAI',
