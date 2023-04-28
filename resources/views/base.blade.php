@@ -71,6 +71,7 @@ Currently, they can use the following list of actions (which will be enhanced ov
     <li>Browse a URL (browseUrl)</li>
     <li>Add a comment (comment)</li>
     <li>Set all goals as complished (endAI)</li>
+    <li>Execute JS script on your browser tab (execJs)</li>
 </ul>
 
 If you have any suggestions for new actions, please send them to me 😀
