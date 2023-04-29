@@ -1,14 +1,15 @@
 
+
+.small {
+    font-size: 0.7em;
+}
+
 .goal-zone {
     label {
         display: block;
         font-weight: bold;
         font-size: 0.75em;
         padding-bottom: 5px;
-
-        .small {
-            font-size: 0.7em;
-        }
     }
 
     textarea {
