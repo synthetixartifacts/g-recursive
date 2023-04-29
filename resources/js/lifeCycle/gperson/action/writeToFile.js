@@ -3,7 +3,7 @@ class ActionWriteToFile extends ActionBase {
         super(world, person);
 
         this.machine = 'writeToFile';
-        this.desc    = '(create)add content to a text file';
+        this.desc    = 'create and/or add content to a TEXT file';
         this.format  = '{"action":"writeToFile","content":"Content to add","filename":"file_name.txt"}';
     }
 

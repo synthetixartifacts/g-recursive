@@ -78,7 +78,7 @@ class OpenAiAPI {
 
     async gptApiCall(messages) {
         // Post header
-        const headers = {
+        var headers = {
             'Content-Type' : 'application/json',
             'Authorization': `Bearer ${this.apiKey}`
         };
@@ -95,7 +95,15 @@ class OpenAiAPI {
 
         // CALL
         try {
-            // console.warn('REAL SEND', body);
+            // Check if api key is set
+            if (this.apiKey == '') {
+                this.apiUrl = '/internal-open-api';
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                headers = new Headers({
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                });
+            }
 
             const response = await fetch(this.apiUrl, { method: 'POST', headers, body });
             const data     = await response.json();

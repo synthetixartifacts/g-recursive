@@ -3,7 +3,7 @@ class ActionWriteToCSV extends ActionBase {
         super(world, person);
 
         this.machine = 'writeToCSV';
-        this.desc    = '(create)add content to a csv file';
+        this.desc    = 'create and/or add content to a CSV file';
         this.format  = '{"action":"writeToCSV","content":"Content to add","filename":"file_name.csv"}';
     }
 
