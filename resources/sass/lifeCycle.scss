@@ -174,9 +174,20 @@
             &.csv .img {
                 background-image: url('/resources/images/misc/csv_white.png');
             }
-
             &.txt .img {
                 background-image: url('/resources/images/misc/text_white.png');
+            }
+            &.pdf .img {
+                background-image: url('/resources/images/misc/pdf_white.png');
+            }
+            &.ppt .img {
+                background-image: url('/resources/images/misc/ppt_white.png');
+            }
+
+            &:hover {
+                label {
+                    color: $color_accent_1;
+                }
             }
         }
 

@@ -1,10 +1,10 @@
-class ActionWriteToFile extends ActionBase {
+class ActionWriteToCSV extends ActionBase {
     constructor(world, person) {
         super(world, person);
 
-        this.machine = 'writeToFile';
-        this.desc    = '(create)add content to a text file';
-        this.format  = '{"action":"writeToFile","content":"Content to add","filename":"file_name.txt"}';
+        this.machine = 'writeToCSV';
+        this.desc    = 'create and/or content to a csv file';
+        this.format  = '{"action":"writeToCSV","content":"Content to add","filename":"file_name.csv"}';
     }
 
     execute(infos) {
@@ -18,9 +18,9 @@ class ActionWriteToFile extends ActionBase {
         }
 
         // Append content to the file
-        const currentContent = fileElement.getAttribute('data-txt');
+        const currentContent = fileElement.getAttribute('data-csv');
         const newContent = currentContent + infos.content + '\n';
-        fileElement.setAttribute('data-txt', newContent);
+        fileElement.setAttribute('data-csv', newContent);
 
         return {
             executed: true
@@ -29,7 +29,7 @@ class ActionWriteToFile extends ActionBase {
 
     createFileElement(filename) {
         const fileElement = document.createElement('div');
-        fileElement.classList.add('file', 'txt');
+        fileElement.classList.add('file', 'csv');
 
         const fileImg = document.createElement('div');
         fileImg.classList.add('img');
@@ -40,13 +40,13 @@ class ActionWriteToFile extends ActionBase {
         fileLabel.textContent = filename;
 
         fileElement.setAttribute('data-filename', filename);
-        fileElement.setAttribute('data-txt', '');
+        fileElement.setAttribute('data-csv', '');
         fileElement.appendChild(fileImg);
         fileElement.appendChild(fileLabel);
 
         fileElement.addEventListener('click', () => {
-            const content = fileElement.getAttribute('data-txt');
-            const blob = new Blob([content], {type: 'text/plain;charset=utf-8;'});
+            const content = fileElement.getAttribute('data-csv');
+            const blob = new Blob([content], {type: 'text/csv;charset=utf-8;'});
             const url = URL.createObjectURL(blob);
 
             const link = document.createElement('a');
@@ -65,4 +65,4 @@ class ActionWriteToFile extends ActionBase {
     }
 }
 
-window.ActionWriteToFile = ActionWriteToFile;
+window.ActionWriteToCSV = ActionWriteToCSV;

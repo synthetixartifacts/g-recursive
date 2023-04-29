@@ -77,6 +77,8 @@ Currently, they can use the following list of actions (which will be enhanced ov
     <li>Set all goals as complished (endAI)</li>
     <li>Write into a text file that you can download (writeToFile)</li>
     <li>Write into a csv file that you can download (writeToCSV)</li>
+    <li>Write into a pdf file that you can download (writeToPDF)</li>
+    <li>Write into a powerpoint file that you can download (writeToPPT)</li>
 </ul>
 
 If you have any suggestions for new actions, please send them to me 😀
@@ -204,6 +206,9 @@ Know that the memory and the list of actions are the only things you can update.
 </script>
 
 
+
+
 @vite(['resources/js/lifeCycle/init.js'])
+
 
 @endsection

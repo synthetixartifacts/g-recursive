@@ -58,7 +58,7 @@ class ActionGoogleSearch extends ActionBase {
             self.person.executeActions([{
                 action : 'talkToAI',
                 name   : self.person.getName(),
-                message: 'You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(items),
+                message: 'You searched for "' + infos.query + '". Results are: ' + JSON.stringify(items) ,
             }]);
         } catch (error) {
           console.error("Error fetching search results:", error);

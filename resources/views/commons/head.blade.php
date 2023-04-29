@@ -40,4 +40,11 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Raleway:100,300,600,800,900&display=swap" onload="this.rel='stylesheet'">
 
 <!-- Styles - DEFER -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.7.0/pptxgen.min.js"></script>
+
+
+
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])

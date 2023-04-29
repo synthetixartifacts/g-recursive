@@ -24,12 +24,14 @@ import './gperson/action/addGoal';
 import './gperson/action/execJs';
 import './gperson/action/execPhp';
 import './gperson/action/askUserInfos';
-import './gperson/action/writeToFile';
-import './gperson/action/writeToCsv';
+import './gperson/action/files/writeToFile';
+import './gperson/action/files/writeToCsv';
+import './gperson/action/files/writeToPDF';
+import './gperson/action/files/writeToPPT';
 
 import './world';
 
-
+window.jsPDF = window.jspdf.jsPDF;
 // TOOD - Change all action name for shortcut version to save token - Add label for human to understand
 
 

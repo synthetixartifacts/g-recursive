@@ -25,8 +25,10 @@ class GPerson {
         this.actionslist.push(new ActionBrowseUrl(world, this));
         this.actionslist.push(new ActionAddGoal(world, this));
         this.actionslist.push(new ActionExecJs(world, this));
-        this.actionslist.push(new ActionWriteToCSV(world, this)); // TODO - properly
-        this.actionslist.push(new ActionWriteToFile(world, this)); // TODO - properly
+        this.actionslist.push(new ActionWriteToCSV(world, this));
+        this.actionslist.push(new ActionWriteToFile(world, this));
+        this.actionslist.push(new ActionWriteToPDF(world, this));
+        this.actionslist.push(new ActionWriteToPPT(world, this));
         // this.actionslist.push(new ActionAskForAction(world, this)); // TODO properly
         // this.actionslist.push(new ActionExecPHP(world, this)); // TODO properly
         // this.actionslist.push(new ActionAskUserInfos(world, this)); // TODO properly -should open a dialog box with asked question and answer field for the user to enter
@@ -209,6 +211,7 @@ class GPerson {
             }]);
         } else {
             console.warn(this.getName() + ' ----- ALL GOALS ARE COMPLETED');
+            this.world.killWorld();
         }
     }
 
