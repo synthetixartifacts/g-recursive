@@ -15,11 +15,6 @@ class ActionCreateAi extends ActionBase {
 
     writeMemoryEnd(newPerson) {
         this.world.writerActions.writeMsgFromSomeone(this.person.getName(), 'Creation of: ' + newPerson.getName());
-
-        if (this.person.getName() != 'Prof') {
-            // this.world.memory.writeMemory(this.person.getName() + ' create: "' + newPerson.getName());
-            // this.person.memory.writeMemory('You were created by : ' + this.person.getName() );
-        }
     }
 
     execute(config) {

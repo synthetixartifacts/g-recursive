@@ -90,7 +90,7 @@ class BrowseUrlController extends Controller
                     $results = preg_replace('/\n/', '', $bodyContent);
                     $results = preg_replace('/[ \t]+/', ' ', $bodyContent);
 
-                    $results = mb_substr($results, 0, 3000);
+                    $results = mb_substr($results, 0, 4000);
                 }
 
                 return response()->json(['content' => $results]);

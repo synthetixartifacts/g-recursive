@@ -145,6 +145,44 @@
 
 
 
+#world_files {
+
+    .file-list {
+        display: flex;
+
+        .file {
+            padding-top: 1em;
+            cursor: pointer;
+            text-align: center;
+
+            .img {
+                display: block;
+                width: 75px;
+                height: 80px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin: auto;
+            }
+
+            label {
+                display: block;
+                padding-top: 10px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            &.csv .img {
+                background-image: url('/resources/images/misc/csv_white.png');
+            }
+
+            &.txt .img {
+                background-image: url('/resources/images/misc/text_white.png');
+            }
+        }
+
+    }
+}
+
 
 
 .top_page {

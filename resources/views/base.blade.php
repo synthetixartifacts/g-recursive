@@ -40,10 +40,10 @@
 <div id="world_history">
     <div class="history_msg"><div class="infos">World yet to be started</div></div>
 </div>
-<!-- <div id="world_file">
-    <div class="copy-to-clip">Copy to clipboard</div>
-    <div class="gpt-response"></div>
-</div> -->
+
+<div id="world_files">
+    <div class="file-list"></div>
+</div>
 </div></div>
 
 
@@ -75,7 +75,8 @@ Currently, they can use the following list of actions (which will be enhanced ov
     <li>Browse a URL (browseUrl)</li>
     <li>Add a comment (comment)</li>
     <li>Set all goals as complished (endAI)</li>
-    <li>Execute JS script on your browser tab (execJs)</li>
+    <li>Write into a text file that you can download (writeToFile)</li>
+    <li>Write into a csv file that you can download (writeToCSV)</li>
 </ul>
 
 If you have any suggestions for new actions, please send them to me 😀
@@ -141,7 +142,7 @@ Here, you'll be able to change almost all prompt text that is send to the API if
         <label>API System message "suffix"</label>
         <input type="text" id="person_system_suffix" name="person_system_suffix" value="" />
         <div class="infos">
-            All system message are composed like this:  <b>contentMessage - Goals - Action List - Suffix</b>
+            All system message are composed like this:  <b>Content - Goals - Action List - Suffix</b>
         </div>
     </div>
     <br/>

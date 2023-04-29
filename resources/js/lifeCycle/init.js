@@ -25,8 +25,12 @@ import './gperson/action/execJs';
 import './gperson/action/execPhp';
 import './gperson/action/askUserInfos';
 import './gperson/action/writeToFile';
+import './gperson/action/writeToCsv';
 
 import './world';
+
+
+// TOOD - Change all action name for shortcut version to save token - Add label for human to understand
 
 
 // TODO - Change main logic for AI to talk back by answering with and array like this instead ["memory":"new memory","comment":"new comment","actions":[action1, action2, ...]]
