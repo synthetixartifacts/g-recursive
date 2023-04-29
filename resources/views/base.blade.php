@@ -17,7 +17,7 @@
     <div class="goal">
         <label class="">
             Main goal
-            <span class="small">- main objective for the world and the first AI entity to be spawned.
+            <span class="small">- main objective for the world and the first AI entity to be spawned.</span>
         </label>
         <textarea type="text" id="main-goal" value=""></textarea>
     </div>
@@ -26,6 +26,8 @@
         <button id="start_it" class="primary disabled">Start world</button>
         <button id="kill_it" class="secondary disabled">End World</button>
     </div>
+
+    <span class="small">ex: write 150 random fact in a csv file. (look at the available actions a little bit further down 😉)</span>
 
 </div>
 </div></div>
