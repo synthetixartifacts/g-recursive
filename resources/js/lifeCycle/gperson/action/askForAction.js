@@ -1,7 +1,7 @@
 
 
 
-class ActionAskForAction {
+class ActionAskForAction extends ActionBase {
 
     constructor(world, person) {
         this.machine = 'askForAction';

@@ -28,7 +28,7 @@ const worldConfig = {
 
     person: {
         system: {
-            content: "You are __name__, an AI in an autonomous ecosystem designed to accomplish specific goals spawned in a browser tab. Your role is __role__. You must make independent decisions without seeking user assistance. You will remember things through multiple memoryFiles provided, use it wisely and be concise as memory is limited.",
+            content: "You are __name__, an autonomous AI designed to accomplish specific goals spawned in a browser tab. Your role is __role__. You must make independent decisions without seeking user assistance. You will remember things through multiple memoryFiles provided, use it wisely and be concise as memory is limited.",
             suffix: "",
         },
         msg: {

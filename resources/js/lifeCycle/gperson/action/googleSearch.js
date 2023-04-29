@@ -37,26 +37,28 @@ class ActionGoogleSearch extends ActionBase {
         const url  = `https://www.googleapis.com/customsearch/v1?key=${googleApiKey}&cx=${googleCseId}&q=${encodeURIComponent(infos.query)}`;
 
         try {
-            const response = await fetch(url);
-            const data     = await response.json();
-            var   items    = [];
+            const response    = await fetch(url);
+            const data        = await response.json();
+            var   items       = [];
+            var   memoryItems = [];
 
             var maxItem = 0;
             if (data.items) {
                 data.items.forEach((item, index) => {
                     maxItem++;
-                    if (maxItem <= 6) {
-                        items.push({url: item.link, title: item.title});
+                    if (maxItem <= 4) {
+                        memoryItems.push({url: item.link, title: item.title});
                     }
+                    items.push({url: item.link, title: item.title});
                 });
             }
 
-            this.person.memory.writeMemory('You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(items));
+            this.person.memory.writeMemory('You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(memoryItems));
 
             self.person.executeActions([{
                 action : 'talkToAI',
                 name   : self.person.getName(),
-                message: 'You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(items)
+                message: 'You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(items),
             }]);
         } catch (error) {
           console.error("Error fetching search results:", error);

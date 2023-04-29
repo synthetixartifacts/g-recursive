@@ -24,9 +24,13 @@ import './gperson/action/addGoal';
 import './gperson/action/execJs';
 import './gperson/action/execPhp';
 import './gperson/action/askUserInfos';
+import './gperson/action/writeToFile';
 
 import './world';
 
+
+// TODO - Change main logic for AI to talk back by answering with and array like this instead ["memory":"new memory","comment":"new comment","actions":[action1, action2, ...]]
+// TODO - and change the logic to use this array
 
 // Start on ready
 $(function() {

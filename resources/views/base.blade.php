@@ -40,6 +40,10 @@
 <div id="world_history">
     <div class="history_msg"><div class="infos">World yet to be started</div></div>
 </div>
+<!-- <div id="world_file">
+    <div class="copy-to-clip">Copy to clipboard</div>
+    <div class="gpt-response"></div>
+</div> -->
 </div></div>
 
 

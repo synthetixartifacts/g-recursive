@@ -23,11 +23,12 @@ class GPerson {
         this.actionslist.push(new ActionWriteMemory(world, this));
         this.actionslist.push(new ActionGoogleSearch(world, this));
         this.actionslist.push(new ActionBrowseUrl(world, this));
-        this.actionslist.push(new ActionAskForAction(world, this));
         this.actionslist.push(new ActionAddGoal(world, this));
         this.actionslist.push(new ActionExecJs(world, this));
-        // this.actionslist.push(new ActionExecPHP(world, this));
-        // this.actionslist.push(new ActionAskUserInfos(world, this));
+        // this.actionslist.push(new ActionWriteToFile(world, this)); // TODO - properly
+        // this.actionslist.push(new ActionAskForAction(world, this)); // TODO properly
+        // this.actionslist.push(new ActionExecPHP(world, this)); // TODO properly
+        // this.actionslist.push(new ActionAskUserInfos(world, this)); // TODO properly -should open a dialog box with asked question and answer field for the user to enter
 
         this.lastMessageGPT = '';
         this.isWaiting      = false;

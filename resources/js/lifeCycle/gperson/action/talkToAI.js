@@ -292,8 +292,13 @@ class ActionTalkToAI extends ActionBase {
         memoryText += JSON.stringify(worldMemories);
         memoryText += '\n';
 
-        memoryText += 'Here\'s YOUR memoryFile in JSON format: ';
-        memoryText += JSON.stringify(memories);
+        memoryText += 'Here\'s YOUR memoryFile as a list: ';
+        for (const mem of memories.short_memory) {
+            memoryText += '\n- "' +mem + '" ';
+        }
+        for (const mem of memories.important) {
+            memoryText += '\n- "' +mem + '" ';
+        }
 
         return memoryText;
     }

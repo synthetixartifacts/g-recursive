@@ -85,7 +85,10 @@ class BrowseUrlController extends Controller
 
                     // Remove spacing \s
                     $results = preg_replace('/\s\s+/', ' ', $bodyContent);
-                    $results = preg_replace('/\n\n+/', ' ', $bodyContent);
+                    $results = preg_replace('/[\s]+/', ' ', $bodyContent);
+                    $results = preg_replace('/\s+/', ' ', $bodyContent);
+                    $results = preg_replace('/[ \t]+/', ' ', $bodyContent);
+
                     $results = mb_substr($results, 0, 3000);
                 }
 
