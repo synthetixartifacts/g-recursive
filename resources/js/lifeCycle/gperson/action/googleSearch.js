@@ -53,12 +53,12 @@ class ActionGoogleSearch extends ActionBase {
                 });
             }
 
-            this.person.memory.writeMemory('You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(memoryItems));
+            this.person.memory.writeMemory('You searched for "' + infos.query + '". Results are: ' + JSON.stringify(memoryItems));
 
             self.person.executeActions([{
                 action : 'talkToAI',
                 name   : self.person.getName(),
-                message: 'You search for "' + infos.query + '". These are the search results: ' + JSON.stringify(items),
+                message: 'You searched for "' + infos.query + '". Results are: ' + JSON.stringify(items),
             }]);
         } catch (error) {
           console.error("Error fetching search results:", error);
