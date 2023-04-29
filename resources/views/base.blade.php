@@ -37,13 +37,14 @@
 
 <div id="world_listing" class="ai_listing"></div>
 
+<div id="world_files">
+    <div class="file-list"></div>
+</div>
+
 <div id="world_history">
     <div class="history_msg"><div class="infos">World yet to be started</div></div>
 </div>
 
-<div id="world_files">
-    <div class="file-list"></div>
-</div>
 </div></div>
 
 
