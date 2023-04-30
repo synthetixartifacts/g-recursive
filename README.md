@@ -1,6 +1,16 @@
+<img src="https://user-images.githubusercontent.com/131910612/235371502-a12f5ceb-1495-4cab-b192-c75d08be69bc.png" height="350"/>
+
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/g_prompter?style=social)](https://twitter.com/g_prompter)
+<img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English"></a>
+
+<hr>  
+
 # G-Recursive: AI-Driven Autonomous Virtual World
 
-G-Recursive is an AI-driven autonomous virtual world where artificial intelligence agents interact, perform actions, and achieve goals within a simulated environment. Users can set main goals, and the application automates the rest of the process.
+G-Recursive is an AI-driven autonomous virtual world where artificial intelligence agents interact, perform actions and achieve goals within a simulated environment. Users can set main goals, and the application automates the rest of the process.
+
+<hr>
 
 ## Features
 
@@ -11,11 +21,26 @@ G-Recursive is an AI-driven autonomous virtual world where artificial intelligen
 -   API integration with OpenAI GPT for generating human-like responses.
 -   Simple user interface to set goals and start the simulation.
 
-<br/>
 <hr>
 
-<br/>
-<br/>
+## Available actions
+Watch AI characters come to life as they work towards achieving it. They can intelligently interact with each other, remember past events, and adapt their actions to achieve the main goal you set.
+
+Here's a list of the AI actions currently available in the virtual world:
+- Create another AI agent
+- Talk to a specific agent
+- Add a goal
+- Complete a goal
+- Write in memory
+- Perform a Google search
+- Browse a URL
+- Add a comment
+- Set all goals as accomplished
+- Write into a text file (downloadable)
+- Write into a CSV file (downloadable)
+
+
+<hr>
 
 # Logic
 
